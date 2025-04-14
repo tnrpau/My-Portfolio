@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        
+        body, h1, h2, h3, p, ul, li, a, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ @keyframes bg {
+            0% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+       
+        .it {
+            position: absolute;
+            top: 20%;
+            left: 80%;
+            animation: fly 10s infinite linear;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateX(-300px) translateY(-200px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) translateY(0);
+                opacity: 0;
+            }
+        }
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: #1A516A;
+            overflow-x: hidden;
+            position: relative;
+            transition: background 2s ease-in-out;
+        }
+
+        header {
+            background-color: #444046; 
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+       
+        .profile-pic {
+            width: 248px;
+            height: 238px;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: borderAnimation 3s infinite;
+        }
+
+       
+        @keyframes borderAnimation {
+            0% {
+                border-color: #D1A1D7; 
+            }
+
+            50% {
+                border-color: #9B4D96; 
+            }
+
+            100% {
+                border-color: #D1A1D7;
+            }
+        }
+
+        .typing-text {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            border-right: 4px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(10) 1s 1 normal both, blink 0.75s step-end infinite, repeatTyping 4s steps(10) infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 15em;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes repeatTyping {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 15em;
+            }
+        }
+
+        
+        nav {
+            margin-top: 50px;
+            position: relative;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #6A4C9C;
+            border-radius: 30px;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #D1A1D7, #9B4D96);
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: transparent;
+            color: #D1A1D7; 
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li a:hover:before {
+            opacity: 1;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            animation: titleAnimation 3s infinite;
+        }
+
+        @keyframes titleAnimation {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+       
+        .about-box {
+            position: relative;
+            padding: 15px;
+            background: transparent;
+            border: 3px solid #58535A;
+            border-radius: 0px;
+            color: #fff;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: auto;
+            width: 150%;
+            animation: completingBorder 3s infinite linear; 
+        }
+
+        @keyframes completingBorder {
+            0% {
+                border-left: 0 solid #6C6C84; 
+                border-top: 0 solid #6C6C84;
+                border-right: 0 solid #6A4C9C;
+                border-bottom: 0 solid #6C6C84;
+            }
+
+            25% {
+                border-left: 3px solid #6C6C84;
+            }
+
+            50% {
+                border-top: 3px solid #6A4C9C;
+            }
+
+            75% {
+                border-right: 3px solid #6C6C84;
+            }
+
+            100% {
+                border-bottom: 3px solid #6C6C84;
+            }
+        }
+
+        .about-box p {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        
+        .portfolio-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white; 
+            z-index: 100;
+        }
+
+        
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .skill-item {
+            margin: 1rem;
+            text-align: center;
+            background: #fff;
+            padding: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            height: 150px;
+            border-radius: 5%;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent; 
+            animation: borderAnimate 2s infinite; 
+        }
+        
+        .skill-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px;
+            border-radius: 20px;
+            animation: borderMove 3s infinite;
+        }
+        @keyframes borderAnimate {
+            0% {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #6A4C9C;
+            }
+
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        .skill-item img {
+            width: 136px;
+            height: 140px;
+            margin-bottom: 1rem;
+            border-radius: 5%;
+            transition: transform 0.5s ease;
+        }
+
+        .skill-item:hover img {
+            transform: rotate(360deg);
+        }
+
+        .skill-item p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            width: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info img {
+            width: 25px;
+            height: 27px;
+            margin-right: 10px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-form {
+            width: 100%;
+            padding: 1rem;
+            background: #444046; 
+            border-radius: 10px;
+        }
+
+        .contact-form label {
+            color: #fff;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 98%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            padding: 15px 20px;
+            background-color: #6A4C9C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #6C6C84; 
+        }
+
+        
+        footer {
+            background-color: #444046; 
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        
+        .download-btn {
+            display: inline-block;
+            background-color: #6A4C9C;
+            color: #fff;
+            padding: 0.5rem 2rem;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #6C6C84; 
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="stars"></div>
+    <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/bg.jpg class="it" alt="It">
+
+    <header>
+        <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/Profile%20Pic.jpg alt="Profile Picture" class="profile-pic">
+        <h1><span class="typing-text">  Paula Eunice M. Tenorio</span></h1>
+        <p>Software Developer | Creator</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <div class="portfolio-text">PORTFOLIO</div>
+        <h2>Hi, I'm Paula!</h2>
+        <div class="about-box">
+            <p>Welcome to my portfolio! I’m an aspiring IT student at Pamantasan ng Lungsod ng San Pablo with a passion for learning and exploring the world of technology. I’m currently have experience in basics of C# Programming, SQL Databases, Microsoft Office and editing. While I'm still building my skills, I’m eager to grow in field. I'm always looking forward to new challenges and opportunities to expand my knowledge. Feel free to reach out for collaboration or inquiries. Let's connect and innovate together.</p>
+        </div>
+        <a href=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/resume.jpg.jpg target="_blank" class="download-btn">Download CV/Resume</a>
+
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill-item">
+                <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/e7b8fcd4ceb430ffc60ed55e5ab98fa5.jpg alt="C# Logo">
+                
+            </div>
+            <div class="skill-item">
+                <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/canva.jpg alt="Canva Logo">
+                
+            </div>
+            <div class="skill-item">
+                <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/sql.jpg alt="MySQL Logo">
+                
+            </div>
+            <div class="skill-item">
+                <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/capcut.jpg alt="CapCut Logo">
+                
+            </div>
+            <div class="skill-item">
+                <img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/ms%20office.jpg alt="Microsoft Office Logo">
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in touch!</h2>
+        <div class="contact">
+            
+            <div class="contact-info">
+                <p><img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/FB.jpg alt="Facebook Logo"> Paula Tenorio</p>
+                <p><img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/GMAIL.jpg alt="Gmail Logo"> paulaeuniceee@gmail.com</p>
+                <p><img src=https://assets.onecompiler.app/43ckgcmbd/43eh6a47s/CPHONE.jpg alt="Telephone Logo"> +63 985 422 2087</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Paula Eunice M. Tenorio. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message. I will get back to you soon!');
+        });
+
+        
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
